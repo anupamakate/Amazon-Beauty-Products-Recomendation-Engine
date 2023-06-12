@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Amazon Beauty Product Recommendation</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<style>
+    .text-black{
+        color:white
+    }
+</style>
+<body style="background-color:white">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div>
+        <a class="navbar-brand" style="font-size:30px">Amazon</a>
+        <ul class="nav navbar-nav">
+            <li><a href="/">Best Selling</a></li>
+            <li><a href="/recommend">Recommend</a></li>
+            <li><a>Shop now</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+    </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-secondary" style="font-size:30px">Amazon Beauty Products</h1>
+            </div>
+
+            {% for i in range(category|length) %}
+                <div class="col-md-3" style="margin-top:50px">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4  class="text-secondary" style="font-size:20px">{{ category[i] }}</h4>
+                            <h4 class="text-secondary" style="font-size:15px">{{ product_id[i] }}</h4>
+                            <h4 class="text-secondary" style="font-size:15px">Total Ratings - {{ num_ratings[i] }}</h4>
+                            <h4 class="text-secondary"style="font-size:15px">Average Rating - {{ rating_per[i] }}</h4>
+                            <a class="btn btn-success" href="{{ link[i] }}" target="_blank">View</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+
+        </div>
+    </div>
+
+</body>
+</html>
